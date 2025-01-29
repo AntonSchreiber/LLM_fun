@@ -7,9 +7,14 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
     <script src="{{ url_for('static', filename='chat.js') }}"></script>
+    <script src="{{ url_for('static', filename='web_search.js') }}"></script>
 </head>
 <body>
-    <div class="chat-container">
+    <div class="mode-switcher">
+        <button id="chat-mode-button" onclick="switchMode('chat')">Chat Mode</button>
+        <button id="web-mode-button" onclick="switchMode('web')">Web Mode</button>
+    </div>
+    <div id="chat-container" class="chat-container">
         <h1>Chat with Deepseek</h1>
         <div id="chat-window">
             <div id="messages"></div>
@@ -19,5 +24,24 @@
             <button id="send-button" onclick="sendMessage()" disabled>Send</button>
         </div>
     </div>
+    <div id="web-container" class="web-container" style="display: none;">
+        <h1>Web Search</h1>
+        <div class="input-container">
+            <input id="web-input" type="text" placeholder="Enter search query..." oninput="toggleWebSearchButton()">
+            <button id="web-search-button" onclick="performWebSearch()" disabled>Search</button>
+        </div>
+        <div id="web-results"></div>
+    </div>
+    <script>
+        function switchMode(mode) {
+            if (mode === 'chat') {
+                document.getElementById('chat-container').style.display = 'block';
+                document.getElementById('web-container').style.display = 'none';
+            } else {
+                document.getElementById('chat-container').style.display = 'none';
+                document.getElementById('web-container').style.display = 'block';
+            }
+        }
+    </script>
 </body>
 </html>

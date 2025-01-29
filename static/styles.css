@@ -24,7 +24,32 @@ body {
     margin: 0;
 }
 
-.chat-container {
+.mode-switcher {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.mode-switcher button {
+    padding: 10px 20px;
+    background-color: var(--button-background-color);
+    color: var(--header-text-color);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.mode-switcher button:hover {
+    background-color: var(--button-hover-background-color);
+}
+
+.mode-switcher button:disabled {
+    background-color: var(--button-disabled-background-color);
+    cursor: not-allowed;
+}
+
+.chat-container, .web-container {
     width: 90%;
     max-width: 600px;
     background-color: var(--container-background-color);
@@ -41,7 +66,7 @@ h1 {
     text-align: center;
 }
 
-#chat-window {
+#chat-window, #web-results {
     height: 70vh;
     overflow-y: auto;
     padding: 10px;
@@ -75,7 +100,7 @@ h1 {
     padding: 10px;
 }
 
-#user-input {
+#user-input, #web-input {
     flex: 1;
     padding: 10px;
     border: 1px solid var(--input-border-color);
@@ -105,15 +130,52 @@ button:disabled {
     display: none;
 }
 
+.result-card {
+    background-color: var(--container-background-color);
+    border: 1px solid var(--input-border-color);
+    border-radius: 8px;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.result-title {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.result-url {
+    color: blue;
+    text-decoration: underline;
+    margin-bottom: 5px;
+}
+
+.result-content {
+    margin-bottom: 5px;
+}
+
+.result-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.result-key {
+    font-weight: bold;
+}
+
+.result-value {
+    margin-left: 10px;
+}
+
 /* Media Queries for Screen Responsiveness */
 @media (max-width: 768px) {
-    .chat-container {
+    .chat-container, .web-container {
         width: 100%;
         height: 100vh;
         border-radius: 0;
     }
 
-    #chat-window {
+    #chat-window, #web-results {
         height: calc(100vh - 120px);
     }
 
