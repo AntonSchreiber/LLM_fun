@@ -1,17 +1,17 @@
 :root {
     --background-color: #f5f5f5;
     --container-background-color: #fff;
-    --header-background-color: #274C77;
+    --header-background-color: #1D2D44;
     --header-text-color: #E7ECEF;
-    --user-message-background-color: #A3CEF1;
-    --user-message-text-color: #333;
-    --bot-message-background-color: #E7ECEF;
-    --bot-message-text-color: #333;
+    --user-message-background-color: #f0ebd8;
+    --user-message-text-color: #0d1321;
+    --bot-message-background-color: #3E5C76;
+    --bot-message-text-color: #f0ebd8;
     --input-border-color: #ddd;
     --button-background-color: #274C77;
     --button-hover-background-color: #274C77;
     --button-disabled-background-color: #8B8C89;
-    --elapsed-time-color: #8B8C89;
+    --elapsed-time-color: #f0ebd8;
 }
 
 body {
@@ -102,21 +102,7 @@ button:disabled {
 }
 
 .loader {
-    height: 10px;
-    aspect-ratio: 6;
-    --c: #0000 64%,#274C77 66% 98%,#0000 101%;
-    background:
-        radial-gradient(35% 146% at 50% 159%,var(--c)) 0 0,
-        radial-gradient(35% 146% at 50% -59%,var(--c)) 25% 100%;
-    background-size: calc(100%/3) 50%;
-    background-repeat: repeat-x;
-    clip-path: inset(0 100% 0 0);
-    animation: l5 1.5s infinite linear;
-}
-
-@keyframes l5 {
-    50% {clip-path: inset(0)}
-    to {clip-path: inset(0 0 0 100%)}
+    display: none;
 }
 
 /* Media Queries for Screen Responsiveness */
